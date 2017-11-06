@@ -54,10 +54,10 @@ struct PPCGCalcUR
     KOKKOS_INLINE_FUNCTION
         void operator()(const team_member& team) const
         {
-            const int team_offset = (team.league_rank() + halo_depth)*y;
+            const int team_offset = (team.league_rank() + halo_depth)*x;
 
             Kokkos::parallel_for(
-                Kokkos::TeamThreadRange(team, halo_depth, y-halo_depth),
+                Kokkos::TeamThreadRange(team, halo_depth, x-halo_depth),
                 [&] (const int &j)
             {
                 const int index = team_offset + j;
@@ -93,10 +93,10 @@ struct PPCGCalcSd
     KOKKOS_INLINE_FUNCTION
     void operator()(const team_member& team) const
     {
-        const int team_offset = (team.league_rank() + halo_depth)*y;
+        const int team_offset = (team.league_rank() + halo_depth)*x;
 
         Kokkos::parallel_for(
-            Kokkos::TeamThreadRange(team, halo_depth, y-halo_depth),
+            Kokkos::TeamThreadRange(team, halo_depth, x-halo_depth),
             [&] (const int &j)
         {
             const int index = team_offset + j;

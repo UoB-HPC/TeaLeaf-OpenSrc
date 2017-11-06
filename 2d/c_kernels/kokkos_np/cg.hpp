@@ -133,10 +133,10 @@ struct CGCalcW
     void operator()(const team_member& team, value_type& pw) const
     {
         double pw_team = 0.0;
-        const int team_offset = (team.league_rank() + halo_depth)*y;
+        const int team_offset = (team.league_rank() + halo_depth)*x;
 
         Kokkos::parallel_reduce(
-                Kokkos::TeamThreadRange(team, halo_depth, y-halo_depth),
+                Kokkos::TeamThreadRange(team, halo_depth, x-halo_depth),
                 [&] (const int &j, double& pw_thread)
         {
             const int index = team_offset + j;
@@ -178,10 +178,10 @@ struct CGCalcUR
     void operator()(const team_member& team, value_type& rrn) const
     {
         double rrn_team = 0.0;
-        const int team_offset = (team.league_rank() + halo_depth)*y;
+        const int team_offset = (team.league_rank() + halo_depth)*x;
 
         Kokkos::parallel_reduce(
-                Kokkos::TeamThreadRange(team, halo_depth, y-halo_depth),
+                Kokkos::TeamThreadRange(team, halo_depth, x-halo_depth),
                 [&] (const int &j, double& rrn_thread)
         {
             const int index = team_offset + j;
@@ -221,10 +221,10 @@ struct CGCalcP
     KOKKOS_INLINE_FUNCTION
     void operator()(const team_member& team) const
     {
-        const int team_offset = (team.league_rank() + halo_depth)*y;
+        const int team_offset = (team.league_rank() + halo_depth)*x;
 
         Kokkos::parallel_for(
-            Kokkos::TeamThreadRange(team, halo_depth, y-halo_depth),
+            Kokkos::TeamThreadRange(team, halo_depth, x-halo_depth),
             [&] (const int &j)
         {
             const int index = team_offset + j;
