@@ -17,6 +17,8 @@ void ppcg_driver(Chunk* chunks, Settings* settings,
   // Perform CG initialisation
   cg_init_driver(chunks, settings, rx, ry, &rro);
 
+  calculate_initial_residual_driver(chunks, settings);
+
   // Iterate till convergence
   for(tt = 0; tt < settings->max_iters; ++tt)
   {
@@ -53,7 +55,7 @@ void ppcg_driver(Chunk* chunks, Settings* settings,
 
     halo_update_driver(chunks, settings, 1);
 
-    if(fabs(*error) < settings->eps) break;
+    if(sqrt(fabs(*error)) < settings->eps * settings->initial_residual) break;
   }
 
   print_and_log(settings, "CG: \t\t\t%d iterations\n", tt-num_ppcg_iters+1);

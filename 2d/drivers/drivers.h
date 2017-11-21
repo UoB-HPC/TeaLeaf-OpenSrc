@@ -69,4 +69,8 @@ void solve_finished_driver(
         Chunk* chunks, Settings* settings);
 void eigenvalue_driver_initialise(
         Chunk* chunks, Settings* settings, int num_cg_iters);
+void calculate_initial_error_driver(
+        Chunk* chunks, Settings* settings, double* error);
+void calculate_initial_residual_driver(
+        Chunk* chunks, Settings* settings);
 

@@ -53,3 +53,6 @@ solve_finished_driver.o: drivers/solve_finished_driver.c \
 store_energy_driver.o: drivers/store_energy_driver.c drivers/../chunk.h \
   drivers/../settings.h drivers/../shared.h drivers/../profiler.h \
   drivers/../kernel_interface.h
+calculate_initial_error_driver.o: drivers/calculate_initial_error_driver.c drivers/../chunk.h \
+  drivers/../settings.h drivers/../shared.h drivers/../profiler.h \
+  drivers/../kernel_interface.h

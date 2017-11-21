@@ -10,6 +10,8 @@ void jacobi_driver(
 {
   jacobi_init_driver(chunks, settings, rx, ry);
 
+  calculate_initial_residual_driver(chunks, settings);
+
   // Iterate till convergence
   int tt;
   for(tt = 0; tt < settings->max_iters; ++tt)
@@ -18,7 +20,7 @@ void jacobi_driver(
 
     halo_update_driver(chunks, settings, 1);
 
-    if(fabs(*error) < settings->eps) break;
+    if(sqrt(fabs(*error)) < settings->eps * settings->initial_residual) break;
   }
 
   print_and_log(settings, "Jacobi: \t\t%d iterations\n", tt);

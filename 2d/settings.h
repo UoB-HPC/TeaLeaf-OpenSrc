@@ -43,6 +43,7 @@
 #define DEF_HALO_DEPTH 2
 #define DEF_RANK 0
 #define DEF_IS_OFFLOAD false
+#define DEF_INITIAL_RESIDUAL 1E+10
 
 // The type of solver to be run
 typedef enum 
@@ -118,6 +119,8 @@ typedef struct Settings
 
     double dx;
     double dy;
+
+    double initial_residual;
 
 } Settings;
 
