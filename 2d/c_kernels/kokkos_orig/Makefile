@@ -1,8 +1,7 @@
 vpath %.cpp $(KERNELS_PATH)
-vpath %.hpp $(KERNELS_PATH)
 
 # User definable parameters
-KOKKOS_PATH   ?= $(KERNELS_PATH)/kokkos_src
+KOKKOS_PATH   ?= $(HOME)/kokkos
 KOKKOS_TARGET ?= OPENMP
 
 # Kokkos target device settings
@@ -33,7 +32,8 @@ ifeq ($(KOKKOS_TARGET), MIC)
 endif
 
 include $(KOKKOS_PATH)/Makefile.kokkos
-CPPFLAGS	  += $(KOKKOS_CPPFLAGS) -I$(KERNELS_PATH)
+INCLUDE_DIRS := ./ $(KERNELS_PATH) $(KOKKOS_PATH)
+CPPFLAGS	  += $(KOKKOS_CPPFLAGS) $(addprefix -I ,$(INCLUDE_DIRS))
 
 # Override the default compiler and flags
 TL_LINK	    := $(CPP)

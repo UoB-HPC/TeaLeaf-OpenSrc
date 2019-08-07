@@ -1,8 +1,8 @@
 # Used specified parameters
-KERNELS   = omp3
+KERNELS   = kokkos_orig
 CPROFILER = yes
 DEBUG     = no
-OPTIONS   = #-DNO_MPI
+OPTIONS   = -DNO_MPI
 CC        = gcc
 CPP       = g++
 COMPILER  = GNU
