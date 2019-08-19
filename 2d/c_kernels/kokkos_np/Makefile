@@ -34,7 +34,7 @@ endif
 
 include $(KOKKOS_PATH)/Makefile.kokkos
 INCLUDE_DIRS := ./ $(KERNELS_PATH) $(KOKKOS_PATH)
-CPPFLAGS	  += $(KOKKOS_CPPFLAGS) $(addprefix -I ,$(INCLUDE_DIRS))
+CPPFLAGS	  += $(KOKKOS_CPPFLAGS) $(addprefix -I, $(INCLUDE_DIRS))
 
 # Override the default compiler and flags
 TL_LINK	    := $(CPP)

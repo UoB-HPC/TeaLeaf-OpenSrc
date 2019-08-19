@@ -22,7 +22,7 @@ ifeq ($(KOKKOS_TARGET), OPENMP)
   KERNEL_COMPILER = $(CPP)
   KERNEL_FLAGS	  = $(CPPFLAGS) $(OPTIONS) -DOPENMP
   KOKKOS_DEVICES  = "OpenMP"
-  KOKKOS_ARCH 	  = "BW"
+  KOKKOS_ARCH 	  = "SNB"
 endif
 ifeq ($(KOKKOS_TARGET), MIC)
   CXX 			  = $(CPP)
@@ -34,7 +34,7 @@ endif
 
 include $(KOKKOS_PATH)/Makefile.kokkos
 INCLUDE_DIRS := ./ $(KERNELS_PATH) $(KOKKOS_PATH)
-CPPFLAGS	  += $(KOKKOS_CPPFLAGS) $(addprefix -I ,$(INCLUDE_DIRS))
+CPPFLAGS	  += $(KOKKOS_CPPFLAGS) $(addprefix -I, $(INCLUDE_DIRS))
 
 # Override the default compiler and flags
 TL_LINK	    := $(CPP)
