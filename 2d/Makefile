@@ -3,8 +3,8 @@ KERNELS   = kokkos
 CPROFILER = yes
 DEBUG     = no
 OPTIONS   = #-DNO_MPI
-CC        = gcc
-CPP       = g++
+CC        = mpicc
+CPP       = mpicxx
 COMPILER  = GNU
 
 # By default use C compiler and flags, may be overridden by implementation
