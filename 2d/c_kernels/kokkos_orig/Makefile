@@ -32,7 +32,7 @@ ifeq ($(KOKKOS_TARGET), MIC)
 endif
 
 include $(KOKKOS_PATH)/Makefile.kokkos
-INCLUDE_DIRS := ./ $(KERNELS_PATH) $(KOKKOS_PATH)
+INCLUDE_DIRS := ./ $(KERNELS_PATH) $(KOKKOS_PATH)/core/src
 CPPFLAGS	  += $(KOKKOS_CPPFLAGS) $(addprefix -I, $(INCLUDE_DIRS))
 
 # Override the default compiler and flags
