@@ -17,13 +17,13 @@ OMP_XL      = -qsmp=omp
 OMP         = $(OMP_$(COMPILER))
 
 ifeq ($(DEBUG), yes)
-    CFLAGS_GNU    = -O0 -g -O -Wall -Wextra -fbounds-check -std=c99
+    CFLAGS_GNU    = -O0 -g -Wall -Wextra -fbounds-check -std=c99
     CFLAGS_INTEL  = -O0 -g -debug all -traceback -std=c99
     CFLAGS_CRAY   = -O0 -g -em -eD
     CFLAGS_CLANG  = -O0 -g
     CFLAGS_XL     = -O0 -g
 
-    FFLAGS_GNU    = -O0 -g -O -Wall -Wextra -fbounds-check
+    FFLAGS_GNU    = -O0 -g -Wall -Wextra -fbounds-check
     FFLAGS_INTEL  = -O0 -g -debug all -check all -traceback -check noarg_temp_created
     FFLAGS_CRAY   = -O0 -g -em -eD
     FFLAGS_CLANG  = -O0 -g
