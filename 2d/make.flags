@@ -11,7 +11,7 @@ CPPFLAGS_INTEL    = -O3 -no-prec-div -restrict -fno-alias -xhost -std=c++11
 CPPFLAGS_GNU      = -O3 -march=native -funroll-loops -std=c++11
 CPPFLAGS_CRAY     = -h list=a
 CPPFLAGS_PGI      = -fastsse -Mlist
-CPPFLAGS_CLANG    = -O3
+CPPFLAGS_CLANG    = -O3 -fopenmp=libomp
 CPPFLAGS_XL       = -O5
 
 FFLAGS_INTEL    = -O3 -no-prec-div -xhost
